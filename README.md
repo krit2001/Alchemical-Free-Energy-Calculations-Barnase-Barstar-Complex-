@@ -35,6 +35,7 @@ This sub-ångström RMSD indicates that the AlphaFold model faithfully reproduce
 Here is the overlay of the AlphaFold model (Cyan) vs. the Crystal Structure (Green):
 
 ![AlphaFold Validation](image/align.png)
+![Score](imgage/align_score.png)
 
 
 
