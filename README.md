@@ -32,6 +32,12 @@ PyMOL alignment statistics:
 
 This sub-ångström RMSD indicates that the AlphaFold model faithfully reproduces the experimental binding interface while restoring missing residues, making it a reliable starting point for subsequent free-energy simulations.
 
+Here is the overlay of the AlphaFold model (Cyan) vs. the Crystal Structure (Green):
+
+![AlphaFold Validation](image/align.png)
+
+
+
 The Free Energy Perturbation was performed using a rigorous thermodynamic cycle (Complex vs. Unbound leg).
 
 - **Software:** GROMACS 2024, PMX (for hybrid topology generation).
