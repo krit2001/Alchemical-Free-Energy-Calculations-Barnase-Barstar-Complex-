@@ -1,0 +1,55 @@
+; Slow growth FEP for Asp149 → Ala (Complex)
+
+integrator          = sd
+dt                  = 0.001           ; 1 fs
+nsteps              = 10000000          ; 1000 ps = 1 ns total time
+
+; Output
+nstxout             = 10000           ; coords every 20 ps
+nstvout             = 0
+nstfout             = 0
+nstlog              = 1000
+nstenergy           = 1000
+nstdhdl             = 100             ; dH/dλ every 0.2 ps
+nstcalcenergy       = 100
+
+; Neighbour / PME
+cutoff-scheme       = Verlet
+nstlist             = 20
+rlist               = 1.0
+coulombtype         = PME
+rcoulomb            = 1.0
+fourierspacing      = 0.12
+pme_order           = 4
+vdwtype             = Cut-off
+rvdw                = 1.0
+DispCorr            = EnerPres
+
+; Thermostat via SD
+tcoupl              = no
+tc-grps             = System
+tau-t               = 2.0
+ref-t               = 300
+bd-fric             = 2.0
+
+; Barostat OFF (NVT) – better for slow growth
+pcoupl              = no
+
+constraints         = h-bonds
+constraint_algorithm = LINCS
+lincs_iter          = 1
+lincs_order         = 4
+
+gen_vel             = yes
+gen_temp            = 300
+gen_seed            = -1
+
+; ---------- Free energy slow growth ----------
+free_energy         = yes
+fep-lambdas         = 0.0 1.0
+init-lambda-state   = 0              ; start from Asp (WT)
+delta_lambda        = 1e-7           ; 1.0 / (500000 steps)
+sc-alpha            = 0.5
+sc-power            = 1
+sc-sigma            = 0.3
+sc-coul             = yes

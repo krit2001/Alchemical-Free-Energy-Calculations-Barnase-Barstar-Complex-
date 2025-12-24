@@ -1,0 +1,59 @@
+; npt_stateA.mdp - NPT equilibration, State A (Asp)
+
+integrator          = sd
+dt                  = 0.002
+nsteps              = 250000       ; 500 ps
+
+nstxout             = 5000
+nstvout             = 0
+nstfout             = 0
+nstlog              = 1000
+nstenergy           = 1000
+
+cutoff-scheme       = Verlet
+nstlist             = 20
+rlist               = 1.0
+
+coulombtype         = PME
+rcoulomb            = 1.0
+fourierspacing      = 0.12
+pme_order           = 4
+
+vdwtype             = Cut-off
+rvdw                = 1.0
+DispCorr            = EnerPres
+
+; Temperature via SD
+tcoupl              = no
+tc-grps             = System
+tau-t               = 2.0
+ref-t               = 300 
+bd-fric             = 2.0          ; friction for SD (ps^-1)
+; Pressure coupling ON
+pcoupl              = C-rescale
+pcoupltype          = isotropic
+tau-p               = 5.0
+ref-p               = 1.0
+compressibility     = 4.5e-5
+
+constraints         = h-bonds
+constraint_algorithm = LINCS
+lincs_iter          = 1
+lincs_order         = 4
+
+comm-mode           = Linear
+comm-grps           = System
+
+gen_vel             = no           ; continue from NVT
+continuation        = yes
+
+; ---------- Free energy settings (State A) ----------
+free_energy         = yes
+fep-lambdas         = 0.0 1.0
+init-lambda-state   = 0
+calc-lambda-neighbors = -1
+
+sc-alpha            = 0.5
+sc-power            = 1
+sc-sigma            = 0.3
+sc-coul             = yes

@@ -1,0 +1,25 @@
+
+#include "amber99sbmut.ff/forcefield.itp"
+
+#include "pmx_topol_Protein_chain_A.itp"
+#include "pmx_topol_Protein_chain_B.itp"
+#include "/home/krits21/Barnase_Barstar_Project/mutff/amber99sbmut.ff/tip3p.itp"
+
+
+
+
+#ifdef POSRES_WATER
+[ position_restraints ]
+1    1       1000       1000       1000
+#endif
+#include "/home/krits21/Barnase_Barstar_Project/mutff/amber99sbmut.ff/ions.itp"
+
+[ system ]
+PMX MODEL in water
+
+[ molecules ]
+Protein_chain_A 1
+Protein_chain_B 1
+SOL         15833
+NA               50
+CL               46
