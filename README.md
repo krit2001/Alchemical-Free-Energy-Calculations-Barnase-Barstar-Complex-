@@ -20,11 +20,17 @@ The interface features a critical salt-bridge network. Specifically, **Aspartate
 
 ## 🛠️ Methodology
 
-Structure Preparation & Validation (AlphaFold)
-*   **Problem:** The available crystal structure (PDB: 1BRS) contains missing residues/gaps in flexible loop regions, which can cause instability in MD simulations.
-*   **Solution:** Instead of modeling loops manually, **AlphaFold2** was used to generate a complete, full-length 3D structure of the Barnase-Barstar complex.
-*   **Validation:** The AlphaFold-generated model was aligned with the experimental crystal structure (1BRS).
-    *   **RMSD Analysis:** Calculated Root Mean Square Deviation (RMSD) to ensure the predicted core interface matched the experimental "ground truth" before starting simulations.
+### Structural Validation: AlphaFold vs. Crystal (1BRS)
+
+To obtain a complete starting structure (including missing loops), the Barnase-Barstar complex was modeled with **AlphaFold2** and aligned to the experimental crystal structure **1BRS** using PyMOL:
+
+
+PyMOL alignment statistics:
+
+- Atoms aligned: 1329
+- Final backbone RMSD: **0.28 Å**
+
+This sub-ångström RMSD indicates that the AlphaFold model faithfully reproduces the experimental binding interface while restoring missing residues, making it a reliable starting point for subsequent free-energy simulations.
 
 The Free Energy Perturbation was performed using a rigorous thermodynamic cycle (Complex vs. Unbound leg).
 
