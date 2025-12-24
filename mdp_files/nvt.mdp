@@ -1,6 +1,6 @@
 ; nvt_stateA.mdp - NVT equilibration, State A (Asp)
 
-integrator          = sd           ; Langevin/SD, good for equil
+integrator          = sd           ; Langevin/SD
 dt                  = 0.002        ; 2 fs
 nsteps              = 250000       ; 500 ps
 
