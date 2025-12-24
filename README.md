@@ -14,7 +14,7 @@ The **Barnase-Barstar** system is a paradigmatic model for understanding high-af
 The interface features a critical salt-bridge network. Specifically, **Aspartate 39 on Barstar** (indexed as Asp149 in the complex) forms a strong hydrogen-bonded salt bridge with **Histidine 102 on Barnase**.
 
 *   **Experimental Context:** Seminal work by *Schreiber & Fersht (J. Mol. Biol, 1995)* utilized alanine scanning mutagenesis to map the energetic epitope of the interface. They determined that removing the charge at this position significantly reduces binding affinity.
-*   **Study Objective:** This project aims to computationally replicate this "hotspot" effect. By alchemically transforming Asp $\to$ Ala, I eliminate the specific salt-bridge interaction. A positive $\Delta\Delta G_{bind}$ (destabilization) comparable to experimental ranges validates the accuracy of the chosen force field (Amber99SB) and the non-equilibrium/slow-growth protocol.
+*   **Study Objective:** This project aims to replicate this "hotspot" effect computationally. By alchemically transforming Asp $\to$ Ala, I eliminate the specific salt-bridge interaction. A positive $\Delta\Delta G_{bind}$ (destabilization) comparable to experimental ranges validates the accuracy of the chosen force field (Amber99SB) and the non-equilibrium/slow-growth protocol.
 
 ## 🛠️ Methodology
 
@@ -57,6 +57,17 @@ $$ \Delta\Delta G_{bind} = \Delta G_{complex} - \Delta G_{unbound} $$
 | **Net ($\Delta\Delta G$)** | - | **+26.7** |
 
 The slow-growth transformation ($\lambda: 0 \to 1$) demonstrated stable $dH/d\lambda$ profiles for both thermodynamic legs, confirming that the 10 ns sampling duration was sufficient to overcome initial hysteresis.
+### Validation against Experiment
+The computational prediction matches the experimental trend observed by Schreiber & Fersht (1995).
+
+| Method | $\Delta\Delta G_{bind}$ (kJ/mol) | $\Delta\Delta G_{bind}$ (kcal/mol) | Status |
+| :--- | :--- | :--- | :--- |
+| **This Work (FEP/Slow Growth)** | **+26.7** | **+6.4** | Destabilizing |
+| **Experimental (Asp39Ala)** | **+32.2** | **+7.7** | Destabilizing |
+
+*   **Experimental Reference:** Schreiber, G., & Fersht, A. R. (1995). Energetics of protein-protein association. *Journal of Molecular Biology*, 248(2), 478-486.
+*   **Agreement:** The calculated value is within ~1.3 kcal/mol of experiment, a typical range for force field accuracy (Amber99SB-ILDN) when handling charge-change mutations involving solvent-exposed salt bridges.
+
 
 ### 2. Convergence Plots
 
