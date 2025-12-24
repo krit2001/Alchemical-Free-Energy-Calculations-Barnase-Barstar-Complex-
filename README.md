@@ -57,6 +57,17 @@ $$ \Delta\Delta G_{bind} = \Delta G_{complex} - \Delta G_{unbound} $$
 | **Unbound** | 3,402,263 | 10 ns | **+340.2** |
 | **Net ($\Delta\Delta G$)** | - | - | **+26.7** |
 
+The slow-growth transformation ($\lambda: 0 \to 1$) demonstrated stable dH/d$\lambda$ profiles for both thermodynamic legs, confirming that the 10 ns sampling duration was sufficient to overcome initial hysteresis.
+
+**Complex Leg Convergence:**
+![Complex Leg dH/dl](image/fep3.png)
+
+*Figure 1: dH/d$\lambda$ vs Time (10 ns) for the Barnase-Barstar complex.*
+
+**Unbound Leg Convergence:**
+![Unbound Leg dH/dl](images/unbound_convergence.png)
+*Figure 2: dH/d$\lambda$ vs Time (10 ns) for the unbound Barstar.*
+
 ### 2. Convergence & Stability
 *   **Hysteresis Handling:** Initial short simulations (1 ns) exhibited significant hysteresis (+428 kJ/mol). Extending the slow-growth protocol to **10 ns** and reducing the time step to **1 fs** stabilized the transition and converged the result.
 
