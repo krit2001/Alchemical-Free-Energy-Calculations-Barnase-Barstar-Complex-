@@ -76,7 +76,7 @@ The computational prediction matches the experimental trend observed by Schreibe
   <br>
   <b>Complex Leg Convergence:</b>
   <br>
-  <i>Figure 2: dH/d$\lambda$ vs Time (10 ns) for the Barnase-Barstar complex.</i>
+  <i>Figure 2: dH/d $\lambda$ vs Time (10 ns) for the Barnase-Barstar complex.</i>
 </p>
 
 <p align="center">
@@ -84,8 +84,29 @@ The computational prediction matches the experimental trend observed by Schreibe
   <br>
   <b>Unbound Leg Convergence:</b>
   <br>
-  <i>Figure 3: dH/d$\lambda$ vs Time (10 ns) for the unbound Barstar.</i>
+  <i>Figure 3: dH/d $\lambda$ vs Time (10 ns) for the unbound Barstar.</i>
+</p>
+### 3. Statistical Validation (gmx analyze)
+To ensure the robustness of the free energy integration, I analyzed the statistical properties of the $dH/d\lambda$ time series for both thermodynamic legs using `gmx analyze`.
+
+**Analysis Parameters:**
+*   **Sampling:** 100,001 data points per leg ($dt=0.1$ ps).
+*   **Integration Method:** Trapezoidal rule.
+
+**Key Observations:**
+*   **Complex Leg (Figure 4a):**
+    *   **Skewness (3rd Cumulant):** 1.528 – Indicates a positive skew, consistent with the asymmetric energy barrier of removing a charged residue.
+    *   **Kurtosis (4th Cumulant):** 2.864 – Indicates "heavy tails," reflecting occasional high-energy steric clashes that are effectively smoothed by the soft-core potential (`sc-alpha=0.3`).
+*   **Unbound Leg (Figure 4b):**
+    *   **Skewness:** 2.210 – Higher skewness suggests the unbound Asp39 has more conformational freedom (and thus more variable interaction energies) than when locked in the complex interface.
+
+<p align="center">
+  <img src="image/complex_analyze.jpg" width="45%" alt="Complex Leg Statistics">
+  <img src="image/unbound_analyze.jpg" width="45%" alt="Unbound Leg Statistics">
+  <br>
+  <i>Figure 4: Statistical output from gmx analyze for the Complex leg (Left) and Unbound leg (Right).</i>
 </p>
 
-### 3. Stability Note
+
+### 4. Stability Note
 *   **Hysteresis Handling:** Initial short simulations (1 ns) exhibited significant hysteresis (+428 kJ/mol). Extending the slow-growth protocol to **10 ns** and reducing the time step to **1 fs** stabilized the transition and converged the result.
