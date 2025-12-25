@@ -52,7 +52,7 @@ The Free Energy Perturbation was performed using a rigorous thermodynamic cycle 
 
 ### 1. Thermodynamic Cycle Results
 The binding affinity change is calculated as:
-$$ \Delta\Delta G_{bind} = \Delta G_{complex} - \Delta G_{unbound} $$
+$\Delta\Delta G_{bind} = \Delta G_{complex} - \Delta G_{unbound}$
 
 #### Mutation A: D149A (Asp $\to$ Ala)
 
@@ -109,7 +109,7 @@ The W44F mutation also showed excellent stability, with flat dH/dλ trajectories
 
 <p align="center">
   <!-- REPLACE THESE WITH YOUR SAVED PLOTS FOR W44F -->
-  <img src="image/w44f_complex.png" width="800">
+  <img src="image/fep_complex_W44F.png" width="800">
   <br>
   <b>Complex Leg Convergence (W44F):</b>
   <br>
@@ -117,7 +117,7 @@ The W44F mutation also showed excellent stability, with flat dH/dλ trajectories
 </p>
 
 <p align="center">
-  <img src="image/w44f_unbound.png" width="800">
+  <img src="image/fep_barstar_W44F.png" width="800">
   <br>
   <b>Unbound Leg Convergence (W44F):</b>
   <br>
